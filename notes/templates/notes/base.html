@@ -16,8 +16,10 @@
       rel="stylesheet"
     />
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'notes/style/getit.css' %}">
-    <script type="text/javascript" src="{% static 'notes/script/getit.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'notes/css/getit.css' %}">
+    {% load static %}
+    <script type="text/javascript" src="{% static 'notes/javascript/getit.js' %}"></script>
+    {% load static %}
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
   </head>
 
