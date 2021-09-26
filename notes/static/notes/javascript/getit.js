@@ -27,7 +27,32 @@ document.addEventListener("DOMContentLoaded", function () {
       5
     )} card-rotation-${getRandomInt(1, 11)}`;
   }
+  
+  let deletedCards = document.getElementsByClassName("deleted-card");
+  
+  for (let i = 0; i < deletedCards.length; i++) {
+    let deletedCard = deletedCards[i];
+    deletedCard.className += ` card-color-${getRandomInt(
+      1,
+      5
+    )}`;
+  }
 })
+
+function openNav() {
+  document.getElementById("mySidenav").style.width = "17%";
+  document.getElementsByClassName("form-card")[0].style.marginRight = "45%";
+  document.getElementsByClassName("card-container")[0].style.marginRight = "15%";
+  document.getElementsByClassName("appbar")[0].style.marginRight = "17%";
+
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementsByClassName("form-card")[0].style.marginRight = "30%";
+  document.getElementsByClassName("card-container")[0].style.marginRight = "3%";
+  document.getElementsByClassName("appbar")[0].style.marginRight = "0%";
+}
 
 window.onload = function() {
   try{
@@ -66,6 +91,9 @@ window.onload = function() {
         modal.style.display = "none";
       }
     }
+
+    
+  
   }
   catch (e){
   }
@@ -81,4 +109,6 @@ window.onload = function() {
   }
   catch (e){
   }  
+  
 };
+

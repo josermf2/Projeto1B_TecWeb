@@ -3,8 +3,22 @@
 
 {% block content %}
 <div class="appbar">
-  <img class="logo" src="{% static 'notes/img/logo-getit.png' %}" />
-  <span class="subtitle">Como o Post-it, mas com outro verbo</span>
+  <div class="logo-subtitle">
+    <img class="logo" src="{% static 'notes/img/logo-getit.png' %}" />
+    <span class="subtitle">Como o Post-it, mas com outro verbo</span>
+  </div>
+
+  <div class="div-tags">
+    <form  action="/" method="GET" >
+      <button class="botao-tags">Home</button>
+    </form>
+  </div>
+
+  <div class="div-tags">
+    <form  action="{% url 'tags' %}" method="GET" >
+      <button class="botao-tags">Tags</button>
+    </form>
+  </div>
 </div>
 
 <main class="container">

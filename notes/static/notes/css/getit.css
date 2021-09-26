@@ -60,6 +60,7 @@ textarea {
 .appbar{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   background-color:#f7d736;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -76,6 +77,12 @@ textarea {
   justify-content: center;
   align-items:center;
   margin-left: 13px;
+}
+
+.logo-subtitle{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .form-card{
@@ -124,7 +131,6 @@ textarea {
   margin-left: 5%;
 }
 
-
 .card-title, .card-tag{
   display: flex;
   flex-direction: column;
@@ -159,6 +165,17 @@ textarea {
   justify-content: flex-end;
 }
 
+.div-tags{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.botao-tags{
+  font-family: 'Permanent Marker', cursive;
+  background-color: #9de0f5;
+  margin-right: 20px;
+}
 
 .delete-button, .edit-button, .botao-lixeira, .restaurar-button, .update-button{
   font-family: 'Permanent Marker', cursive;

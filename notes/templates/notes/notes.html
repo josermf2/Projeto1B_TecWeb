@@ -37,7 +37,7 @@
     </div>
 
     <div  class="botoes">
-      <form method="POST" action="{% url 'delete' delete_id=note.id %}">
+      <form method="POST"  action="{% url 'delete' delete_id=note.id %}">
         {% csrf_token %}
         <button name="deletar" class="delete-button" type="submit">Deletar</button>
       </form>
@@ -50,8 +50,36 @@
 </div>
 
 <div class="div-lixeira">
-    <form  action="{% url 'tags' %}" method="GET" >
-      <button class="botao-lixeira">Tags</button>
-    </form>
+  <button onclick="openNav()" class="botao-lixeira">Lixeira</button>
 </div>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  {% for deleted in deleted_notes %}
+  <div class="deleted-card">
+    <h3 class="card-tag">{{ deleted.tag }}</h3>
+    <h3 id="title"  class="card-title">{{ deleted.title }}</h3>
+    <div id="content"  class="card-content">
+      <p>{{ deleted.content }}</p>
+    </div>
+    <div class="botoes">
+        <form action="{% url 'delete_deleted_note' delete_id=deleted.id %}" method="POST">
+            {% csrf_token %}
+            <button name="deleted"  class="delete-button" type="submit" value="{id}">Deletar</button>
+        </form>
+        
+        <form action="{% url 'restore_note' delete_id=deleted.id %}" method="POST">
+          {% csrf_token %}
+          <div style="display: none;">
+            <input name="tag" value="{{ deleted.tag }}"></input>
+            <input name="title" value="{{ deleted.title }}"></input>
+            <input name="content" value="{{ deleted.content }}"></input>
+          </div>
+          <button name="restaurar" class="restaurar-button" type="submit">Restaurar</button>
+        </form>
+    </div> 
+  </div>
+  {% endfor %} 
+</div>
+
 {% endblock %}
