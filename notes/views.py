@@ -30,7 +30,11 @@ def post(request):
     
     return redirect('index')
 
-def update(request, update_id='', title='', content='', tag=''):
+def update(request, update_id=''):
+    
+    title = request.POST.get('titulo')
+    content = request.POST.get('detalhes')
+    tag  = request.POST.get('tag')
     note = Note.objects.get(id=update_id)
     note.title = title
     note.content = content

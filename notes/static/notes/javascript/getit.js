@@ -58,7 +58,7 @@ window.onload = function() {
     }
   
     update_button.addEventListener('click', ()=>{
-      update_button.formAction = "update/"+id+"/"+modal_title.value+"/"+modal_content.value+"/"+modal_tag.value;
+      update_button.formAction = "update/"+id;
     });
   
     for(let i=0;i<spans.length;i++){
