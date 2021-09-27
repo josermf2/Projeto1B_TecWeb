@@ -31,7 +31,7 @@ def delete(request, delete_id):
 def post(request):   
     title = request.POST.get('titulo')
     content = request.POST.get('detalhes')
-    tag  = request.POST.get('tag')
+    tag  = request.POST.get('tag').lower()
 
     if Tag.objects.filter(tag=tag).exists():    
         newNote = Note(title=title, content=content, tag=Tag.objects.get(tag=tag))
@@ -53,6 +53,12 @@ def update(request, update_id=''):
     note.title = title
     note.content = content
     note.save()
+
+    if Note.objects.filter(tag=note.tag).count() > 1:
+        pass
+    else:
+        Tag.objects.get(tag=note.tag).delete()
+
     
     if Tag.objects.filter(tag=tag).exists():
         note.tag = Tag.objects.get(tag=tag)
