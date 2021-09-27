@@ -59,7 +59,6 @@ def update(request, update_id=''):
     else:
         Tag.objects.get(tag=note.tag).delete()
 
-    
     if Tag.objects.filter(tag=tag).exists():
         note.tag = Tag.objects.get(tag=tag)
         note.save()
